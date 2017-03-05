@@ -11,3 +11,10 @@ C:\Users\GMRInstructor\documents\visual studio 2015\Projects\MihirPongX\obj\Debu
 C:\Users\GMRInstructor\Documents\GitHub\MihirPongX\bin\Debug\MihirPongX.exe.config
 C:\Users\GMRInstructor\Documents\GitHub\MihirPongX\obj\Debug\MihirPongX.exe
 C:\Users\GMRInstructor\Documents\GitHub\MihirPongX\obj\Debug\MihirPongX.pdb
+C:\Users\GMRInstructor\Documents\GitHub\MihirPongX\bin\Debug\MihirPongX.exe
+C:\Users\GMRInstructor\Documents\GitHub\MihirPongX\bin\Debug\MihirPongX.pdb
+C:\Users\GMRInstructor\Documents\GitHub\MihirPongX\obj\Debug\MihirPongX.csprojResolveAssemblyReference.cache
+C:\Users\GMRInstructor\Documents\GitHub\MihirPongX\obj\Debug\MihirPongX.Form1.resources
+C:\Users\GMRInstructor\Documents\GitHub\MihirPongX\obj\Debug\MihirPongX.Form2.resources
+C:\Users\GMRInstructor\Documents\GitHub\MihirPongX\obj\Debug\MihirPongX.Properties.Resources.resources
+C:\Users\GMRInstructor\Documents\GitHub\MihirPongX\obj\Debug\MihirPongX.csproj.GenerateResource.Cache
