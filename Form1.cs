@@ -11,9 +11,15 @@ namespace MihirPongX
     {
         Bitmap bitmap;
         Graphics gfx;
-
+        Paddle paddle;
 
         Ball ball;
+
+        Paddle left;
+
+        Paddle right;
+
+        KeyEventArgs keyPressed;
 
         int paddle1x = 0;
         int paddle2x = 0;
@@ -40,6 +46,8 @@ namespace MihirPongX
             timer1.Enabled = true;
 
             ball = new Ball(50, 50, 60, 60, 4, 4);
+            left = new Paddle(0, 128, 100, 10, 6, Keys.W, Keys.S);
+            right = new Paddle(paddle2x, 128, 100, 10, 6, Keys.Up, Keys.Down);
 
         }
 
@@ -57,21 +65,16 @@ namespace MihirPongX
 
 
         private void timer1_Tick(object sender, EventArgs e)
-              {
+        {
             gfx.Clear(Color.Transparent);
 
-
+            //update
             ball.Update(ClientSize);
+            
 
-            //Paddle 1
-            gfx.FillRectangle(Brushes.Orange, paddle1x, paddle1y, paddle1w, paddle1h);
-
-
-
-
-            //Paddle 2
-            gfx.FillRectangle(Brushes.Orange, paddle2x, paddle2y, paddle2w, paddle2h);
-
+            //draw
+            left.Draw(gfx);
+            right.Draw(gfx);
             ball.Draw(gfx);
 
             drawBox.Image = bitmap;
@@ -80,22 +83,9 @@ namespace MihirPongX
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.S && paddle1y + paddle1h <= ClientSize.Height)
-            {
-                paddle1y += 6;
-            }
-            if (e.KeyCode == Keys.W && paddle1y >= 0)
-            {
-                paddle1y -= 6;
-            }
-            if (e.KeyCode == Keys.Down && paddle2y + paddle2h <= ClientSize.Height)
-            {
-                paddle2y += 6;
-            }
-            if (e.KeyCode == Keys.Up && paddle2y >= 0)
-            {
-                paddle2y -= 6;
-            }
+            keyPressed = e;
+            left.Update(keyPressed, this);
+            right.Update(keyPressed, this);
         }
 
 

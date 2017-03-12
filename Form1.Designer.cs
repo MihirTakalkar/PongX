@@ -39,11 +39,12 @@
             // 
             this.positionLabel.AutoSize = true;
             this.positionLabel.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.positionLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.positionLabel.Font = new System.Drawing.Font("Tekton Pro Ext", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.positionLabel.ForeColor = System.Drawing.Color.OrangeRed;
             this.positionLabel.Location = new System.Drawing.Point(12, 9);
             this.positionLabel.Name = "positionLabel";
-            this.positionLabel.Size = new System.Drawing.Size(97, 23);
+            this.positionLabel.Size = new System.Drawing.Size(99, 25);
             this.positionLabel.TabIndex = 1;
             this.positionLabel.Text = "Location";
             this.positionLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.positionLabel_MouseMove);
