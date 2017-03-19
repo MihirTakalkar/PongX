@@ -15,27 +15,29 @@ namespace MihirPongX
         public int height;
         public int width;
         public int speed;
-        Keys upKey;
-        Keys downKey;
 
-        public Paddle(int x, int y, int height, int width, int speed, Keys upKey, Keys downKey)
+        public Rectangle hitbox;
+
+        public Paddle(int x, int y, int height, int width, int speed)
         {
             this.x = x;
             this.y = y;
             this.height = height;
             this.width = width;
             this.speed = speed;
-            this.upKey = upKey;
-            this.downKey = downKey;
+
+            hitbox = new Rectangle(x, y, width, height);
         }
 
-        public void Update(KeyEventArgs e, Form currentForm)
+        public void Update(bool up, bool down, Form currentForm)
         {
-            if (e.KeyCode == upKey && y >= 0)
+            hitbox.X = x;
+            hitbox.Y = y;
+            if (up && y >= 0)
             {
                 y -= speed;
             }
-            if (e.KeyCode == downKey && y + height <= currentForm.ClientSize.Height)
+            if (down && y + height <= currentForm.ClientSize.Height)
             {
                 y += speed;
             }

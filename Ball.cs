@@ -14,9 +14,13 @@ namespace MihirPongX
         int y;
         int height;
         int width;
-        int speedx;
-        int speedy;
+        public int Speedx;
+        public int Speedy;
 
+        public Rectangle Hitbox;
+
+        public bool HitLeft;
+        public bool HitRight;
 
         public Ball(int x, int y, int width, int height, int speedx, int speedy)
         {
@@ -24,40 +28,51 @@ namespace MihirPongX
             this.y = y;
             this.width = width;
             this.height = height;
-            this.speedx = speedx;
-            this.speedy = speedy; 
+            this.Speedx = speedx;
+            this.Speedy = speedy;
+
+            Hitbox = new Rectangle(x, y, width, height);
         }
-        
+
 
         public void Update(Size ClientSize)
         {
-            x += speedx;
-            y += speedy;
+            x += Speedx;
+            y += Speedy;
+
+            Hitbox.X = x;
+            Hitbox.Y = y;
+
+            HitRight = false;
+            HitLeft = false;
 
             if (y + height > ClientSize.Height)
             {
-                speedy *= -1;
+                Speedy *= -1;
             }
             if (y < 0)
 
             {
-                speedy *= -1;
+                Speedy *= -1;
             }
 
             if (x + width > ClientSize.Width)
 
             {
-                speedx *= -1;
+                Speedx *= -1;
+                HitRight = true;
             }
             if (x < 0)
             {
-                speedx *= -1;
+                Speedx *= -1;
+                HitLeft = true;
             }
         }
 
         public void Draw(Graphics gfx)
         {
             gfx.FillEllipse(Brushes.Green, x, y, height, width);
+            
         }
 
 
