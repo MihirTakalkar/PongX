@@ -31,7 +31,7 @@ namespace MihirPongX
 
         bool w = false;
         bool s = false;
-        bool up;
+      
 
         public Form1()
         {
@@ -65,6 +65,18 @@ namespace MihirPongX
         private void drawBox_MouseMove(object sender, MouseEventArgs e)
         {
             positionLabel.Text = e.Location.ToString();
+            if(e.Location.Y + right.height >= ClientSize.Height)
+            {
+                right.y = ClientSize.Height - right.height;
+            }
+            //else if (right.y <= 0)
+            //{
+            //    right.y = 0;
+            //}
+            else
+            {
+                right.y = e.Location.Y;
+            }
         }
 
 
@@ -75,11 +87,11 @@ namespace MihirPongX
 
 
             //update
-            if (ball.Hitbox.IntersectsWith(left.hitbox))
+            if (ball.Hitbox.IntersectsWith(left.Hitbox))
             {
                 ball.Speedx = Math.Abs(ball.Speedx);
             }
-            if (ball.Hitbox.IntersectsWith(right.hitbox))
+            if (ball.Hitbox.IntersectsWith(right.Hitbox))
             {
                 ball.Speedx = -Math.Abs(ball.Speedx);
             }
@@ -87,7 +99,7 @@ namespace MihirPongX
 
             ball.Update(ClientSize);
             left.Update(w, s, this);
-            right.Update(false, false, this);
+            //right.Update(up, down, this);
 
             if (ball.HitRight)
             {
@@ -130,9 +142,10 @@ namespace MihirPongX
             left.Draw(gfx);
             right.Draw(gfx);
             ball.Draw(gfx);
-            gfx.DrawString($"Score: {score1}", label1.Font, Brushes.Orange, label1.Location);
-            gfx.DrawString($"Score: {score2}", label2.Font, Brushes.Orange, label2.Location);
+            gfx.DrawString($"Score: {score1}", label1.Font, Brushes.Turquoise, label1.Location);
+            gfx.DrawString($"Score: {score2}", label2.Font, Brushes.Turquoise, label2.Location);
             gfx.DrawString("PongX", label3.Font, Brushes.Lime, label3.Location);
+            gfx.DrawString("Ultimate Edition", label4.Font, Brushes.Gold, label4.Location);
             drawBox.Image = bitmap;
 
 
@@ -151,27 +164,24 @@ namespace MihirPongX
             {
                 s = true;
             }
+       
 
-
-            if (keyPressed.KeyCode == Keys.Z)
-            {
-                score1++;
-            }
         }
+
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            keyPressed = e;
-
-            if (keyPressed.KeyCode == Keys.W)
+            if(e.KeyCode == Keys.W)
             {
                 w = false;
             }
-            if (keyPressed.KeyCode == Keys.S)
+            if(e.KeyCode == Keys.S)
             {
                 s = false;
             }
         }
+
+
 
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -184,7 +194,6 @@ namespace MihirPongX
 
         }
 
-       
     }
 
 }

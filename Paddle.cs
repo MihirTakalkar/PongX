@@ -16,7 +16,10 @@ namespace MihirPongX
         public int width;
         public int speed;
 
-        public Rectangle hitbox;
+        public Rectangle Hitbox
+        {
+            get { return new Rectangle(x, y, width, height); }
+        }
 
         public Paddle(int x, int y, int height, int width, int speed)
         {
@@ -25,14 +28,10 @@ namespace MihirPongX
             this.height = height;
             this.width = width;
             this.speed = speed;
-
-            hitbox = new Rectangle(x, y, width, height);
         }
 
         public void Update(bool up, bool down, Form currentForm)
         {
-            hitbox.X = x;
-            hitbox.Y = y;
             if (up && y >= 0)
             {
                 y -= speed;
@@ -43,6 +42,12 @@ namespace MihirPongX
             }
 
         }
+
+
+
+
+
+
         public void Draw(Graphics gfx)
         {
             gfx.FillRectangle(Brushes.Orange, x, y, width, height);
