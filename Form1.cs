@@ -48,8 +48,8 @@ namespace MihirPongX
             this.Show();
             timer1.Enabled = true;
 
-            ball = new Ball(50, 50, 60, 60, 4, 4);
-            left = new Paddle(0, 128, 100, 10, 6);
+            ball = new Ball(50, 50, 60, 60, 7, 7);
+            left = new Paddle(0, 128, 100, 10, 7);
             right = new Paddle(paddle2x, 128, 100, 10, 6);
 
 
@@ -127,8 +127,8 @@ namespace MihirPongX
 
 
 
-                ball = new Ball(50, 50, 60, 60, 4, 4);
-                left = new Paddle(0, 128, 100, 10, 6);
+                ball = new Ball(50, 50, 60, 60, 7, 7);
+                left = new Paddle(0, 128, 100, 10, 7);
                 right = new Paddle(paddle2x, 128, 100, 10, 6);
                 score1 = 0;
                 score2 = 0;
